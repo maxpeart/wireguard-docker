@@ -1,5 +1,4 @@
 version: '3'
-env_file: .env
 services:
   wireguard:
     container_name: 'wireguard'
@@ -19,13 +18,12 @@ services:
   transmission:
     image: 'linuxserver/transmission'
     container_name: 'transmission'
+    env_file: .env
     environment:
       - PUID=1001
       - PGID=1001
       - TZ=Europe/London
       - TRANSMISSION_WEB_HOME=/transmission-web-control/ #optional
-      - USER=username #optional
-      - PASS=password #optional
     volumes:
       - /path/to:/config
       - /path/to:/downloads
