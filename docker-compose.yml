@@ -1,4 +1,5 @@
 version: '3'
+env_file: .env
 services:
   wireguard:
     container_name: 'wireguard'
@@ -14,7 +15,7 @@ services:
       - 51820:51820/udp
       - 9091:9091
     volumes:
-      - /path/to/wireguard:/etc/wireguard
+      - /etc/wireguard-docker:/etc/wireguard
   transmission:
     image: 'linuxserver/transmission'
     container_name: 'transmission'
